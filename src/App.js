@@ -3,7 +3,7 @@ import './App.css'
 
 const App = () => (
   <div>
-    <UserInterface />
+    <PasswordManger />
   </div>
 )
 export default App
