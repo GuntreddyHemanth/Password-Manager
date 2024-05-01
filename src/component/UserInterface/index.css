@@ -21,3 +21,52 @@
   display: flex;
   margin: 10px;
 }
+
+.add-password-container {
+  background-color: #454f84;
+  font-family: Roboto;
+  padding: 20px;
+  border: 0px none;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
+
+.input-container {
+  display: flex;
+  border-radius: 5px;
+  border: 0px none;
+  padding: 10px;
+  background-color: white;
+  width: 300px;
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+
+.input-log {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.input-item {
+  outline: none;
+  background-color: transparent;
+  border: 0px none;
+  border-left: 2px #5763a5;
+  cursor: pointer;
+}
+
+.add-button-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.password-manager-image{
+    height: 500px;
+    width: 550px;
+    margin-left:100px;
+}
+
+
