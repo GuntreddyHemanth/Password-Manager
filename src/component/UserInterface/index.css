@@ -58,15 +58,54 @@
   cursor: pointer;
 }
 
-.add-button-container{
-    display: flex;
-    justify-content: flex-end;
+.add-button-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.password-manager-image{
-    height: 500px;
-    width: 550px;
-    margin-left:100px;
+.password-manager-image {
+  height: 500px;
+  width: 550px;
+  margin-left: 100px;
 }
 
+.bottom-container {
+  background-color: #5763a5;
+  background-size: cover;
+  width: 85%;
+  padding: 30px;
+  border: 0px none;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
 
+.your-password-container {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.your-password-text-cont {
+  display: flex;
+  color: white;
+}
+
+.password-heading {
+  color: white;
+  font-family: Roboto;
+  font-weight: bold;
+}
+
+.count {
+  color: white;
+  border-radius: 15px;
+  border-width: 2px;
+  border-color: white;
+  border-style: solid;
+  padding: 15px;
+  padding-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}

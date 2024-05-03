@@ -11,6 +11,10 @@ class PasswordManger extends Component {
     searchInput: '',
   }
 
+  updateSearchList = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
   onChangeWebsite = event => {
     this.setState({websiteInput: event.target.value})
   }
@@ -24,10 +28,18 @@ class PasswordManger extends Component {
   }
 
   render() {
-    const {websiteInput, username, passwordInput, itemsList, searchInput} = this.state
+    const {
+      websiteInput,
+      username,
+      passwordInput,
+      itemsList,
+      searchInput,
+    } = this.state
 
-    const updatedList = itemsList.filter(each => 
-        each.websiteInput.toLowerCase().includes(searchInput.toLowerCase())
+    const updatedList = itemsList.filter(each =>
+      each.websiteInput.toLowerCase().includes(searchInput.toLowerCase()),
+    )
+    const count = updatedList.length
 
     return (
       <div className="bg-container">
@@ -103,6 +115,19 @@ class PasswordManger extends Component {
               <div className="your-password-text-cont">
                 <h1 className="password-heading">Your Passwords</h1>
                 <p className="count">{count}</p>
+              </div>
+              <div className="search-input-container">
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/password-manager-search-img.png"
+                  alt="search"
+                  className="search-logo"
+                />
+                <input
+                  type="search"
+                  placeholder="Search"
+                  className="input-item"
+                  onChange={this.updateSearchList}
+                />
               </div>
             </div>
           </div>
