@@ -1,4 +1,6 @@
 import {Component} from 'react'
+import {v4} from 'uuid'
+import InputItem from '../InputItems'
 
 import './index.css'
 
@@ -9,6 +11,37 @@ class PasswordManger extends Component {
     username: '',
     passwordInput: '',
     searchInput: '',
+    isChecked: false,
+  }
+
+  onAddPasswordList = event => {
+    event.preventDefault()
+    const {websiteInput, username, passwordInput} = this.state
+
+    const newItem = {
+      id: v4(),
+      websiteInput,
+      username,
+      passwordInput,
+    }
+
+    this.setState(prev => ({
+      itemsList: [...prev.itemsList, newItem],
+      websiteInput: '',
+      username: '',
+      passwordInput: '',
+    }))
+  }
+
+  onDeleteItem = id => {
+    const {itemsList} = this.state
+    const updatedList = itemsList.filter(each => each.id !== id)
+
+    this.setState({itemsList: updatedList})
+  }
+
+  onChecked = () => {
+    this.setState(prev => ({isChecked: !prev.isChecked}))
   }
 
   updateSearchList = event => {
@@ -27,6 +60,17 @@ class PasswordManger extends Component {
     this.setState({passwordInput: event.target.value})
   }
 
+  renderNoPasswordView = () => {
+    ;<div className="no-password-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
+        alt="no passwords"
+        className="no-password-image"
+      />
+      <p>No password</p>
+    </div>
+  }
+
   render() {
     const {
       websiteInput,
@@ -34,6 +78,7 @@ class PasswordManger extends Component {
       passwordInput,
       itemsList,
       searchInput,
+      isChecked,
     } = this.state
 
     const updatedList = itemsList.filter(each =>
@@ -52,7 +97,7 @@ class PasswordManger extends Component {
         <div className="top-container">
           <form
             className="add-password-container"
-            onSubmit={this.onAddpasswordList}
+            onSubmit={this.onAddPasswordList}
           >
             <h1 className="password-heading">Add New Password</h1>
             <div className="input-container">
@@ -130,6 +175,30 @@ class PasswordManger extends Component {
                 />
               </div>
             </div>
+            <hr />
+            <div className="show-password-container">
+              <input
+                type="checkbox"
+                checked={isChecked}
+                id="showPassword"
+                onChange={this.onChecked}
+              />
+              <label htmlFor="showPassword">Show passwords</label>
+            </div>
+            {count === 0 ? (
+              this.renderNoPasswordView()
+            ) : (
+              <ul className="list-items-container">
+                {updatedList.map(each => (
+                  <InputItem
+                    key={each.id}
+                    itemDetails={each}
+                    isChecked={isChecked}
+                    onDeleteItem={this.onDeleteItem}
+                  />
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>

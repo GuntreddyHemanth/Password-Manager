@@ -109,3 +109,35 @@
   margin-left: 10px;
   margin-bottom: 10px;
 }
+
+.search-logo {
+  color: #454f84;
+}
+
+.show-password-container {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  font-family: Roboto;
+}
+
+.no-password-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-password-image {
+  height: 500px;
+  width: 600px;
+}
+
+.list-items-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0px;
+  margin-top: 24px;
+}
